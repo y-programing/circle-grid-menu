@@ -1,0 +1,83 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    margin-top: 100px;
+}
+
+@media screen and (max-width: 600px) {
+    .container {
+        margin-top: 50px;
+    }
+}
+
+ul {
+    width: fit-content;
+    margin: 0 auto;
+    list-style: none;
+    position: relative;
+}
+
+ul::before {
+    content: "TEXTTEXT\A TEXT";
+    white-space: pre;
+    color: #efefef;
+    position: absolute;
+    font-size: clamp(75px, 10vw, 120px);
+    font-weight: bold;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: -1;
+}
+
+ul::after {
+    content: "";
+    background: url(./pmenu-circle.png);
+    display: inline-block;
+    /* ↑背景画像はコンテンツとみなされないから、widthとheightを指定する必要があるしただけじゃ表示されない。block要素にする必要がある。 */
+    width: 375px;
+    height: 375px;
+    background-size: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -2;
+}
+
+.item-container {
+    display: flex;
+}
+
+li {
+    border: 1px solid #c3d902;
+    border-radius: 50%;
+    border: none;
+    width: 188px;
+    height: 188px;
+    margin: 30px;
+    background: #c3d902;
+    background: linear-gradient(0deg, rgba(195, 217, 2, 1) 0%, rgba(253, 187, 45, 1) 100%);
+    box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.5);
+}
+
+a {
+    text-decoration: none;
+}
+
+span {
+    font-weight: bold;
+    font-size: 30px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 188px;
+    -webkit-text-stroke: #c3d902 3px;
+    paint-order: stroke;
+}
